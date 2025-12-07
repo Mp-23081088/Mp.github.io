@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device, initial-scale=1.0">
+    <title>Contack form</title>
+    <div class="form-container">
+        <form onsubmit="return validdateForm()" method="post">
+            <label>Name:</label>
+            <input type="text" id="name">
+            <label>Email:</label>
+            <input type="email" id="email">
+            <label>Message:</label>
+            <textarea id="message"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</head>
+<body>
+    <script>
+        let isRed = false;
+
+        function changeColor() {
+            const table = document.getElementById("componentTable");
+            table.style.color = isRed ? "black" : "red";
+            isRed = !isRed;
+        }
+        function sortTable() {
+            const table = document.getElementById("componentTable");
+            const rows = Array.from(table.rows).slice(1);
+            rows.sort((a, b) => {
+                const priceA = parseInt(a.cells[1].innerText);
+                const priceB = parseInt(b.cells[1].innerText);
+                return priceA - priceB;
+            });
+            rows.forEach(row => table.appendChild(row));
+        }
+        function toggleMenu() {
+            const nav = document.getElementById("mainNav");
+            nav.style.display = nav.style.display === "none" ? "block" : "none";
+        }
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill out all fields!");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</body>
+</html>

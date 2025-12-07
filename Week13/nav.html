@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+            background-color: black;
+            padding: 15px;
+            text-align: center;
+            display: none;
+            display: block;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 7 10px;
+        }
+        nav a:hover {
+            color: green;
+            background-color: red;
+        }
+    </style>    
+</head>
+<body>
+    <nav id="mainNav">
+        <a href="#">Home</a> -
+        <a href="#">Books &copy;</a> -
+        <a href="#">Authors &trade;</a> -
+        <a href="#">Contact</a>
+    </nav>
+    <button onclick="toggleA()">Toggle Menu</button>
+    <script>
+        function toggleA() {
+            var nav = document.getElementById("mainNav");
+            if (nav.style.display === "block") {
+                nav.style.display = "none";
+            } else {
+                nav.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
